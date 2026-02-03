@@ -56,10 +56,17 @@ const yesMessages = [
 ];
 
 // ===== FLOATING HEARTS =====
+let heartsInterval = null;
+
 function createFloatingHearts() {
     const hearts = ['💕', '💗', '💖', '💓', '❤️', '💘', '💝'];
 
-    setInterval(() => {
+    // Don't create hearts on envelope stage (keep it clean)
+    if (document.getElementById('envelopeStage').classList.contains('active')) {
+        return;
+    }
+
+    heartsInterval = setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'floating-heart';
         heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
@@ -72,9 +79,19 @@ function createFloatingHearts() {
     }, 500);
 }
 
-// ===== SPARKLES =====
+function stopFloatingHearts() {
+    if (heartsInterval) {
+        clearInterval(heartsInterval);
+        heartsInterval = null;
+    }
+}
+
+// ===== SPARKLES (disabled for clean design) =====
 function createSparkles() {
+    // Disabled for elegant envelope design
+    return;
     const sparklesContainer = document.getElementById('sparkles');
+    if (!sparklesContainer) return;
     const sparkleEmojis = ['✨', '💫', '⭐', '🌟'];
 
     for (let i = 0; i < 15; i++) {
@@ -92,6 +109,11 @@ function createSparkles() {
 function showStage(stageName) {
     Object.values(stages).forEach(stage => stage.classList.remove('active'));
     stages[stageName].classList.add('active');
+
+    // Start floating hearts after leaving envelope
+    if (stageName !== 'envelope' && !heartsInterval) {
+        createFloatingHearts();
+    }
 }
 
 // ===== ENVELOPE CLICK =====
