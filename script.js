@@ -152,7 +152,7 @@ yesBtn.addEventListener('click', () => {
 
 // ===== CONFETTI =====
 function createConfetti() {
-    const colors = ['#ff69b4', '#ff1493', '#dc143c', '#ffb6c1', '#ffc0cb', '#ff6b6b', '#ffd700', '#ff85c1'];
+    const colors = ['#F1B5FF', '#FFFFC5', '#CEC4FF', '#F4C4FF', '#754480', '#E8D5FF', '#FFE4F0', '#D4B8FF'];
     const shapes = ['circle', 'square', 'heart'];
 
     for (let i = 0; i < 150; i++) {
