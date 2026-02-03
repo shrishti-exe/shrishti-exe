@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 A Special Message For You 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Music Control -->
+    <button class="music-btn" id="musicBtn" title="Play Music">
+        <span class="music-icon">🎵</span>
+    </button>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Stage 1: Envelope -->
+    <section class="stage envelope-stage active" id="envelopeStage">
+        <div class="sparkles" id="sparkles"></div>
+        <p class="tap-hint">tap the envelope 💌</p>
+        <div class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="heart-seal">💕</div>
+                </div>
+                <div class="letter-preview" id="letterPreview">
+                    <span>For You...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 2: Letter -->
+    <section class="stage letter-stage" id="letterStage">
+        <div class="letter-container">
+            <div class="letter-paper" id="letterPaper">
+                <div class="letter-header">
+                    <span class="letter-heart">💗</span>
+                    <span class="letter-date">February 14th</span>
+                </div>
+                <div class="letter-content">
+                    <p class="greeting">My Dearest Love,</p>
+                    <p class="letter-body">
+                        Every moment with you feels like a beautiful dream I never want to wake up from.
+                        Your smile lights up my world, and your laugh is my favorite melody.
+                        You make ordinary days extraordinary and turn simple moments into precious memories.
+                    </p>
+                    <p class="letter-body">
+                        I fall more in love with you every single day, and I can't imagine my life without you in it.
+                        You are my best friend, my soulmate, and my everything.
+                    </p>
+                    <p class="letter-closing">
+                        Forever Yours,<br>
+                        <span class="signature">With All My Love 💕</span>
+                    </p>
+                </div>
+                <button class="continue-btn" id="continueToCard">
+                    Continue <span>→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 3: Valentine Card with Yes/No -->
+    <section class="stage card-stage" id="cardStage">
+        <div class="valentine-card">
+            <div class="card-decoration top-left">✨</div>
+            <div class="card-decoration top-right">✨</div>
+            <div class="card-decoration bottom-left">💕</div>
+            <div class="card-decoration bottom-right">💕</div>
+
+            <div class="card-content">
+                <div class="big-heart">💖</div>
+                <h1 class="card-title">Will You Be My Valentine?</h1>
+                <p class="card-subtitle" id="cardSubtitle">Please say yes... 🥺</p>
+
+                <div class="buttons-container">
+                    <button class="btn yes-btn" id="yesBtn">Yes! 💕</button>
+                    <button class="btn no-btn" id="noBtn">No</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 4: Celebration -->
+    <section class="stage celebration-stage" id="celebrationStage">
+        <div class="confetti-container" id="confettiContainer"></div>
+        <div class="celebration-content">
+            <h1 class="yay-text">YAAAY! 🎉</h1>
+            <p class="celebration-subtitle">I knew you'd say yes! 💕</p>
+            <div class="love-explosion">💖💕💗💓💝💘</div>
+            <button class="surprise-btn" id="showSurprises">
+                Click for Surprises! 🎁
+            </button>
+        </div>
+    </section>
+
+    <!-- Stage 5: Memory Cards -->
+    <section class="stage memories-stage" id="memoriesStage">
+        <h2 class="memories-title">Our Special Memories 💕</h2>
+        <div class="memories-container">
+            <div class="memory-card" style="--delay: 0s">
+                <div class="memory-card-inner">
+                    <div class="memory-front">
+                        <span class="card-number">1</span>
+                        <span class="tap-to-flip">tap to flip 💫</span>
+                    </div>
+                    <div class="memory-back">
+                        <div class="memory-image" style="background: linear-gradient(135deg, #ffb6c1, #ff69b4);">
+                            <span class="placeholder-text">📸</span>
+                        </div>
+                        <p class="memory-caption">Our first date - the day my heart knew 💕</p>
+                    </div>
+                </div>
+            </div>
+            <div class="memory-card" style="--delay: 0.2s">
+                <div class="memory-card-inner">
+                    <div class="memory-front">
+                        <span class="card-number">2</span>
+                        <span class="tap-to-flip">tap to flip 💫</span>
+                    </div>
+                    <div class="memory-back">
+                        <div class="memory-image" style="background: linear-gradient(135deg, #ffc0cb, #ff1493);">
+                            <span class="placeholder-text">📸</span>
+                        </div>
+                        <p class="memory-caption">That trip we took together - pure magic ✨</p>
+                    </div>
+                </div>
+            </div>
+            <div class="memory-card" style="--delay: 0.4s">
+                <div class="memory-card-inner">
+                    <div class="memory-front">
+                        <span class="card-number">3</span>
+                        <span class="tap-to-flip">tap to flip 💫</span>
+                    </div>
+                    <div class="memory-back">
+                        <div class="memory-image" style="background: linear-gradient(135deg, #ffb6c1, #dc143c);">
+                            <span class="placeholder-text">📸</span>
+                        </div>
+                        <p class="memory-caption">Every moment with you is my favorite 💖</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="final-message">Here's to making millions more memories together! 💕</p>
+        <button class="restart-btn" id="restartBtn">Start Over 💌</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
