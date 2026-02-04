@@ -1,13 +1,26 @@
-/* ===== ROOT VARIABLES - ROCOCO ROMANCE ===== */
+/* ===== ROOT VARIABLES - VINTAGE POSTAL VALENTINE ===== */
 :root {
-    --lavender-pink: #F1B5FF;
-    --pale-yellow: #FFFFC5;
-    --soft-lavender: #CEC4FF;
-    --light-pink: #F4C4FF;
-    --deep-purple: #754480;
+    /* Deep burgundy/maroon base */
+    --burgundy-dark: #5C1A1B;
+    --burgundy: #7B2D2E;
+    --burgundy-light: #9B4547;
+
+    /* Blush pink/cream for cards */
+    --blush: #F5E6E0;
+    --blush-light: #FAF0ED;
     --cream: #FFF9F5;
-    --white: #ffffff;
-    --shadow: rgba(117, 68, 128, 0.25);
+    --cream-dark: #EDE4DC;
+
+    /* Accent colors */
+    --gold: #C9A962;
+    --gold-light: #E5D4A8;
+    --rose: #D4A5A5;
+    --sage: #9CAF88;
+
+    /* Text colors */
+    --text-dark: #3D2020;
+    --text-medium: #5C3D3D;
+    --text-light: #8B6B6B;
 
     /* Font families */
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -23,7 +36,7 @@
 
 body {
     font-family: var(--font-sans);
-    background: linear-gradient(135deg, var(--cream) 0%, var(--pale-yellow) 30%, var(--light-pink) 70%, var(--lavender-pink) 100%);
+    background: var(--burgundy-dark);
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -43,9 +56,10 @@ body {
 
 .floating-heart {
     position: absolute;
-    font-size: 20px;
-    animation: floatUp 6s ease-in infinite;
-    opacity: 0.6;
+    font-size: 16px;
+    animation: floatUp 8s ease-in infinite;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
 }
 
 @keyframes floatUp {
@@ -54,10 +68,10 @@ body {
         opacity: 0;
     }
     10% {
-        opacity: 0.6;
+        opacity: 0.4;
     }
     90% {
-        opacity: 0.6;
+        opacity: 0.4;
     }
     100% {
         transform: translateY(-100px) rotate(360deg);
@@ -71,21 +85,21 @@ body {
     top: 20px;
     right: 20px;
     z-index: 1000;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, var(--lavender-pink), var(--deep-purple));
-    color: white;
-    font-size: 20px;
+    border: 2px solid var(--gold);
+    background: var(--burgundy);
+    color: var(--gold);
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 4px 15px var(--shadow);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .music-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px var(--shadow);
+    background: var(--burgundy-light);
 }
 
 .music-btn.playing {
@@ -119,34 +133,41 @@ body {
     visibility: visible;
 }
 
-/* ===== ENVELOPE STAGE ===== */
+/* ===== ENVELOPE STAGE - VINTAGE POSTAL ===== */
 .envelope-stage {
-    background: #FDF2F4;
-    gap: 30px;
+    background: var(--burgundy-dark);
+    background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(123, 45, 46, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(123, 45, 46, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(92, 26, 27, 1) 0%, rgba(60, 18, 19, 1) 100%);
+    gap: 25px;
+    padding: 20px;
 }
 
 /* Header text */
 .envelope-header {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .invite-text {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 3px;
-    color: #9B4D5A;
-    margin-bottom: 8px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .invite-title {
     font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 500;
+    font-size: 2.8rem;
+    font-weight: 400;
     font-style: italic;
-    color: #9B4D5A;
+    color: var(--cream);
     line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Envelope container */
@@ -156,8 +177,8 @@ body {
 
 .envelope {
     position: relative;
-    width: 320px;
-    height: 220px;
+    width: 340px;
+    height: 240px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -171,50 +192,73 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, #FAE8EA 0%, #F5D9DC 100%);
+    background: linear-gradient(145deg, var(--blush) 0%, var(--cream-dark) 100%);
     border-radius: 4px;
     box-shadow:
-        0 25px 50px rgba(155, 77, 90, 0.15),
-        0 10px 20px rgba(155, 77, 90, 0.1);
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-/* Paper texture overlay */
+/* Scalloped/stamp edge effect */
 .envelope-back::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    border-radius: 4px;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    background:
+        radial-gradient(circle at 6px 0, transparent 4px, var(--blush-light) 4px, var(--blush-light) 6px, transparent 6px),
+        radial-gradient(circle at 6px 100%, transparent 4px, var(--blush-light) 4px, var(--blush-light) 6px, transparent 6px);
+    background-size: 12px 6px;
+    background-position: 0 0, 0 100%;
+    background-repeat: repeat-x;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.envelope-back::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    background:
+        radial-gradient(circle at 0 6px, transparent 4px, var(--blush-light) 4px, var(--blush-light) 6px, transparent 6px),
+        radial-gradient(circle at 100% 6px, transparent 4px, var(--blush-light) 4px, var(--blush-light) 6px, transparent 6px);
+    background-size: 6px 12px;
+    background-position: 0 0, 100% 0;
+    background-repeat: repeat-y;
+    border-radius: 8px;
+    z-index: -1;
 }
 
 /* Letter inside envelope */
 .envelope-letter {
     position: absolute;
-    top: 15px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 85%;
-    height: 70%;
-    background: white;
+    height: 65%;
+    background: var(--cream);
     border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-style: italic;
-    color: #9B4D5A;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    color: var(--text-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
     z-index: 1;
 }
 
 .envelope.open .envelope-letter {
-    transform: translateX(-50%) translateY(-180px);
+    transform: translateX(-50%) translateY(-200px);
 }
 
 /* Envelope front (covers the letter) */
@@ -223,35 +267,9 @@ body {
     bottom: 0;
     width: 100%;
     height: 65%;
-    background: linear-gradient(165deg, #FAE8EA 0%, #F5D9DC 100%);
+    background: linear-gradient(165deg, var(--blush-light) 0%, var(--blush) 100%);
     border-radius: 0 0 4px 4px;
     z-index: 2;
-}
-
-.envelope-front::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-}
-
-/* Diagonal fold lines on front */
-.envelope-front::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(135deg, transparent 49.5%, rgba(155, 77, 90, 0.05) 49.5%, rgba(155, 77, 90, 0.05) 50.5%, transparent 50.5%),
-        linear-gradient(-135deg, transparent 49.5%, rgba(155, 77, 90, 0.05) 49.5%, rgba(155, 77, 90, 0.05) 50.5%, transparent 50.5%);
-    background-size: 100% 100%;
-    background-position: center top;
 }
 
 /* Envelope flap (triangular top) */
@@ -261,60 +279,47 @@ body {
     left: 0;
     width: 100%;
     height: 55%;
-    background: linear-gradient(180deg, #F5D9DC 0%, #FAE8EA 100%);
+    background: linear-gradient(180deg, var(--blush) 0%, var(--blush-light) 100%);
     clip-path: polygon(0 0, 50% 100%, 100% 0);
     transform-origin: top center;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 3;
-}
-
-.envelope-flap::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .envelope.open .envelope-flap {
     transform: rotateX(180deg);
 }
 
-/* Wax seal */
+/* Wax seal with dove design */
 .wax-seal {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(145deg, #A85766 0%, #8B4553 50%, #7A3D4A 100%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #C9785A 0%, #A85A40 50%, #8B4A35 100%);
     border-radius: 50%;
     z-index: 4;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow:
-        0 4px 12px rgba(139, 69, 83, 0.4),
-        inset 0 2px 4px rgba(255, 255, 255, 0.2),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Wax seal texture */
+/* Seal texture ring */
 .wax-seal::before {
     content: '';
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
+    width: 58px;
+    height: 58px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    background: linear-gradient(145deg, #A85766 0%, #8B4553 100%);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15);
 }
 
 .envelope.open .wax-seal {
@@ -322,66 +327,73 @@ body {
     opacity: 0;
 }
 
-/* Heart shape on wax seal */
+/* Heart on wax seal */
 .wax-heart {
-    position: relative;
-    width: 22px;
-    height: 20px;
-    z-index: 1;
-}
-
-.wax-heart::before,
-.wax-heart::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 14px;
-    height: 22px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%);
-    border-radius: 14px 14px 0 0;
+    font-size: 26px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .wax-heart::before {
-    left: 11px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
+    content: '🕊️';
 }
 
-.wax-heart::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
+/* Decorative ribbon bow */
+.envelope::before {
+    content: '🎀';
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    z-index: 5;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    transition: opacity 0.5s ease;
+}
+
+.envelope.open::before {
+    opacity: 0;
+}
+
+/* Vintage postal stamps decoration */
+.envelope::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 45px;
+    height: 55px;
+    background: var(--cream);
+    border: 1px dashed var(--text-light);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Click hint text */
 .tap-hint {
-    position: absolute;
-    bottom: 12%;
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 2px;
-    color: #9B4D5A;
-    opacity: 0.7;
-    animation: none;
+    letter-spacing: 3px;
+    color: var(--gold);
+    opacity: 0.8;
+    text-transform: uppercase;
 }
 
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-/* ===== LETTER STAGE ===== */
+/* ===== LETTER STAGE - VINTAGE POSTCARD ===== */
 .letter-stage {
-    background: #D4C4B0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    background-blend-mode: overlay;
+    background: var(--burgundy-dark);
+    background-image:
+        radial-gradient(ellipse at 30% 70%, rgba(123, 45, 46, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 30%, rgba(123, 45, 46, 0.3) 0%, transparent 50%);
 }
 
 .letter-container {
     padding: 20px;
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
 }
 
 .letter-card {
@@ -397,31 +409,87 @@ body {
     }
 }
 
-/* Wavy border frame */
+/* Scalloped stamp border frame */
 .wavy-border {
-    background: #FAF6F1;
-    padding: 8px;
+    background: var(--cream);
+    padding: 5px;
     position: relative;
-    /* CSS wavy border using clip-path */
-    clip-path: polygon(
-        0% 5%, 2% 0%, 5% 5%, 8% 0%, 11% 5%, 14% 0%, 17% 5%, 20% 0%, 23% 5%, 26% 0%, 29% 5%, 32% 0%, 35% 5%, 38% 0%, 41% 5%, 44% 0%, 47% 5%, 50% 0%, 53% 5%, 56% 0%, 59% 5%, 62% 0%, 65% 5%, 68% 0%, 71% 5%, 74% 0%, 77% 5%, 80% 0%, 83% 5%, 86% 0%, 89% 5%, 92% 0%, 95% 5%, 98% 0%, 100% 5%,
-        100% 95%, 98% 100%, 95% 95%, 92% 100%, 89% 95%, 86% 100%, 83% 95%, 80% 100%, 77% 95%, 74% 100%, 71% 95%, 68% 100%, 65% 95%, 62% 100%, 59% 95%, 56% 100%, 53% 95%, 50% 100%, 47% 95%, 44% 100%, 41% 95%, 38% 100%, 35% 95%, 32% 100%, 29% 95%, 26% 100%, 23% 95%, 20% 100%, 17% 95%, 14% 100%, 11% 95%, 8% 100%, 5% 95%, 2% 100%, 0% 95%
-    );
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Scalloped edge effect - top and bottom */
+.wavy-border::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background:
+        radial-gradient(circle at 8px 0, transparent 5px, var(--cream) 5px, var(--cream) 8px, transparent 8px),
+        radial-gradient(circle at 8px 100%, transparent 5px, var(--cream) 5px, var(--cream) 8px, transparent 8px);
+    background-size: 16px 8px;
+    background-position: -4px 0, -4px 100%;
+    background-repeat: repeat-x;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+/* Scalloped edge effect - left and right */
+.wavy-border::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background:
+        radial-gradient(circle at 0 8px, transparent 5px, var(--cream) 5px, var(--cream) 8px, transparent 8px),
+        radial-gradient(circle at 100% 8px, transparent 5px, var(--cream) 5px, var(--cream) 8px, transparent 8px);
+    background-size: 8px 16px;
+    background-position: 0 -4px, 100% -4px;
+    background-repeat: repeat-y;
+    border-radius: 10px;
+    z-index: -1;
 }
 
 .letter-inner {
-    background: #FAF6F1;
-    padding: 35px 30px;
+    background: var(--cream);
+    padding: 35px 28px;
+    border: 1px solid var(--cream-dark);
+}
+
+/* Decorative corner flourishes */
+.letter-inner::before,
+.letter-inner::after {
+    content: '❦';
+    position: absolute;
+    font-size: 20px;
+    color: var(--rose);
+    opacity: 0.5;
+}
+
+.letter-inner::before {
+    top: 15px;
+    left: 15px;
+}
+
+.letter-inner::after {
+    bottom: 15px;
+    right: 15px;
+    transform: rotate(180deg);
 }
 
 /* Title */
 .letter-title {
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-style: italic;
-    font-weight: 500;
-    color: #9B4D5A;
+    font-weight: 400;
+    color: var(--burgundy);
     text-align: center;
     margin-bottom: 25px;
 }
@@ -431,9 +499,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(155, 77, 90, 0.2);
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--cream-dark);
 }
 
 .address-fields {
@@ -450,18 +518,18 @@ body {
 
 .address-label {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    color: #9B4D5A;
+    color: var(--text-medium);
     letter-spacing: 1px;
 }
 
 .address-name {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-style: italic;
-    color: #9B4D5A;
-    border-bottom: 1px solid #9B4D5A;
+    color: var(--burgundy);
+    border-bottom: 1px solid var(--burgundy-light);
     padding-bottom: 2px;
 }
 
@@ -473,27 +541,28 @@ body {
 }
 
 .postmark-lines {
-    width: 40px;
-    height: 35px;
+    width: 35px;
+    height: 30px;
     background: repeating-linear-gradient(
         0deg,
         transparent,
         transparent 4px,
-        #C4929A 4px,
-        #C4929A 6px
+        var(--burgundy-light) 4px,
+        var(--burgundy-light) 5px
     );
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 .vintage-stamp {
-    width: 70px;
-    height: 70px;
-    border: 3px solid #9B4D5A;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--burgundy);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    background: var(--blush-light);
 }
 
 .stamp-inner {
@@ -501,7 +570,7 @@ body {
 }
 
 .stamp-bow {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1;
 }
 
@@ -517,15 +586,12 @@ body {
 .stamp-text-circle span {
     position: absolute;
     font-family: var(--font-sans);
-    font-size: 0.45rem;
+    font-size: 0.4rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    color: #9B4D5A;
+    letter-spacing: 0.5px;
+    color: var(--burgundy);
     white-space: nowrap;
-}
-
-.stamp-text-circle span:nth-child(1) {
-    top: 8px;
+    top: 6px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -533,73 +599,74 @@ body {
 /* Letter greeting */
 .letter-greeting {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #9B4D5A;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--burgundy);
+    margin-bottom: 18px;
 }
 
 /* Letter body */
 .letter-body-text {
-    color: #7A5A5A;
-    line-height: 1.7;
-    font-size: 0.95rem;
+    color: var(--text-medium);
+    line-height: 1.8;
+    font-size: 0.9rem;
 }
 
 .letter-body-text p {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     text-align: left;
 }
 
 /* Sign off */
 .letter-sign-off {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-style: italic;
-    color: #9B4D5A;
-    margin-top: 25px;
-    margin-bottom: 30px;
+    color: var(--burgundy);
+    margin-top: 22px;
+    margin-bottom: 28px;
 }
 
 /* Footer */
 .letter-footer {
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .footer-title {
     font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #9B4D5A;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--burgundy);
     margin-bottom: 2px;
 }
 
 .footer-date {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: #9B4D5A;
+    font-size: 0.85rem;
+    color: var(--text-light);
 }
 
 .continue-btn {
     display: block;
     margin: 0 auto;
     padding: 12px 35px;
-    background: linear-gradient(135deg, #C4929A, #9B4D5A);
-    color: white;
+    background: var(--burgundy);
+    color: var(--cream);
     border: none;
     border-radius: 50px;
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(155, 77, 90, 0.3);
+    box-shadow: 0 5px 20px rgba(92, 26, 27, 0.4);
 }
 
 .continue-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(155, 77, 90, 0.4);
+    background: var(--burgundy-light);
+    box-shadow: 0 8px 25px rgba(92, 26, 27, 0.5);
 }
 
 .continue-btn span {
@@ -613,18 +680,57 @@ body {
 
 /* ===== VALENTINE CARD STAGE ===== */
 .card-stage {
-    background: radial-gradient(circle at center, var(--cream), var(--soft-lavender));
+    background: var(--burgundy-dark);
+    background-image:
+        radial-gradient(ellipse at 50% 50%, rgba(123, 45, 46, 0.4) 0%, transparent 60%);
 }
 
 .valentine-card {
-    background: white;
-    padding: 60px 50px;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px var(--shadow);
+    background: var(--cream);
+    padding: 50px 45px;
+    border-radius: 8px;
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 10px 25px rgba(0, 0, 0, 0.3);
     position: relative;
-    max-width: 450px;
+    max-width: 400px;
     text-align: center;
     animation: cardAppear 0.8s ease;
+}
+
+/* Scalloped edges for card */
+.valentine-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background:
+        radial-gradient(circle at 10px 0, transparent 6px, var(--cream) 6px, var(--cream) 10px, transparent 10px),
+        radial-gradient(circle at 10px 100%, transparent 6px, var(--cream) 6px, var(--cream) 10px, transparent 10px);
+    background-size: 20px 10px;
+    background-position: -5px 0, -5px 100%;
+    background-repeat: repeat-x;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.valentine-card::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background:
+        radial-gradient(circle at 0 10px, transparent 6px, var(--cream) 6px, var(--cream) 10px, transparent 10px),
+        radial-gradient(circle at 100% 10px, transparent 6px, var(--cream) 6px, var(--cream) 10px, transparent 10px);
+    background-size: 10px 20px;
+    background-position: 0 -5px, 100% -5px;
+    background-repeat: repeat-y;
+    border-radius: 12px;
+    z-index: -1;
 }
 
 @keyframes cardAppear {
@@ -640,8 +746,9 @@ body {
 
 .card-decoration {
     position: absolute;
-    font-size: 24px;
+    font-size: 20px;
     animation: twinkle 2s ease infinite;
+    filter: grayscale(20%);
 }
 
 @keyframes twinkle {
@@ -649,80 +756,88 @@ body {
     50% { opacity: 0.5; transform: scale(0.8); }
 }
 
-.top-left { top: 15px; left: 15px; }
-.top-right { top: 15px; right: 15px; animation-delay: 0.5s; }
-.bottom-left { bottom: 15px; left: 15px; animation-delay: 0.25s; }
-.bottom-right { bottom: 15px; right: 15px; animation-delay: 0.75s; }
+.top-left { top: 12px; left: 12px; }
+.top-right { top: 12px; right: 12px; animation-delay: 0.5s; }
+.bottom-left { bottom: 12px; left: 12px; animation-delay: 0.25s; }
+.bottom-right { bottom: 12px; right: 12px; animation-delay: 0.75s; }
 
 .big-heart {
-    font-size: 80px;
+    font-size: 70px;
     animation: heartbeat 1.5s ease infinite;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .card-title {
     font-family: var(--font-serif);
-    font-size: 2.4rem;
-    font-weight: 600;
-    color: var(--deep-purple);
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px var(--shadow);
+    font-size: 2rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--burgundy);
+    margin-bottom: 12px;
 }
 
 .card-subtitle {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-style: italic;
-    color: var(--deep-purple);
-    opacity: 0.8;
-    margin-bottom: 30px;
-    min-height: 30px;
+    color: var(--text-medium);
+    margin-bottom: 28px;
+    min-height: 28px;
 }
 
 .buttons-container {
     display: flex;
-    gap: 20px;
+    gap: 18px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    min-height: 80px;
+    min-height: 70px;
 }
 
 .btn {
-    padding: 15px 40px;
+    padding: 14px 38px;
     border: none;
     border-radius: 50px;
     font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .yes-btn {
-    background: linear-gradient(135deg, var(--lavender-pink), var(--deep-purple));
-    color: white;
-    box-shadow: 0 5px 20px var(--shadow);
+    background: var(--burgundy);
+    color: var(--cream);
+    box-shadow: 0 5px 20px rgba(92, 26, 27, 0.4);
 }
 
 .yes-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 30px var(--shadow);
+    background: var(--burgundy-light);
+    box-shadow: 0 8px 30px rgba(92, 26, 27, 0.5);
 }
 
 .no-btn {
-    background: #f0f0f0;
-    color: #888;
+    background: var(--cream-dark);
+    color: var(--text-light);
     transition: all 0.2s ease;
 }
 
 .no-btn:hover {
-    background: #e0e0e0;
+    background: #ddd;
 }
 
 /* ===== CELEBRATION STAGE ===== */
 .celebration-stage {
-    background: radial-gradient(circle at center, var(--cream), var(--light-pink));
+    background: var(--burgundy-dark);
+    background-image:
+        radial-gradient(ellipse at 50% 30%, rgba(201, 169, 98, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 70%, rgba(123, 45, 46, 0.4) 0%, transparent 50%);
 }
 
 .confetti-container {
@@ -757,6 +872,7 @@ body {
     text-align: center;
     z-index: 1;
     animation: celebrationAppear 0.5s ease;
+    padding: 20px;
 }
 
 @keyframes celebrationAppear {
@@ -772,10 +888,10 @@ body {
 
 .yay-text {
     font-family: var(--font-serif);
-    font-size: 5rem;
-    font-weight: 700;
-    color: var(--deep-purple);
-    text-shadow: 3px 3px 6px var(--shadow);
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: var(--cream);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
     animation: yayBounce 0.5s ease infinite alternate;
 }
 
@@ -786,15 +902,15 @@ body {
 
 .celebration-subtitle {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-style: italic;
-    color: var(--deep-purple);
+    color: var(--gold-light);
     margin: 20px 0;
 }
 
 .love-explosion {
-    font-size: 2.5rem;
-    margin: 30px 0;
+    font-size: 2.2rem;
+    margin: 25px 0;
     animation: loveExplosion 1s ease infinite;
 }
 
@@ -804,58 +920,63 @@ body {
 }
 
 .surprise-btn {
-    padding: 20px 50px;
-    background: linear-gradient(135deg, var(--lavender-pink), var(--deep-purple));
-    color: white;
+    padding: 18px 45px;
+    background: var(--gold);
+    color: var(--burgundy-dark);
     border: none;
     border-radius: 50px;
     font-family: var(--font-sans);
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 25px var(--shadow);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
     animation: glowPulse 2s ease infinite;
 }
 
 @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 5px 25px var(--shadow); }
-    50% { box-shadow: 0 5px 40px var(--lavender-pink); }
+    0%, 100% { box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); }
+    50% { box-shadow: 0 5px 40px rgba(201, 169, 98, 0.5); }
 }
 
 .surprise-btn:hover {
     transform: scale(1.1);
+    background: var(--gold-light);
 }
 
 /* ===== MEMORIES STAGE ===== */
 .memories-stage {
-    background: linear-gradient(135deg, var(--cream), var(--pale-yellow), var(--light-pink), var(--lavender-pink));
+    background: var(--burgundy-dark);
+    background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(123, 45, 46, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(123, 45, 46, 0.3) 0%, transparent 50%);
     padding: 40px 20px;
     overflow-y: auto;
 }
 
 .memories-title {
     font-family: var(--font-serif);
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: var(--deep-purple);
+    font-size: 2.4rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--cream);
     text-align: center;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px var(--shadow);
+    margin-bottom: 35px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .memories-container {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 950px;
     margin: 0 auto;
 }
 
 .memory-card {
-    width: 280px;
-    height: 350px;
+    width: 260px;
+    height: 330px;
     perspective: 1000px;
     cursor: pointer;
     animation: memoryAppear 0.8s ease backwards;
@@ -891,50 +1012,57 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px var(--shadow);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .memory-front {
-    background: linear-gradient(135deg, var(--lavender-pink), var(--deep-purple));
+    background: linear-gradient(145deg, var(--burgundy-light), var(--burgundy));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--cream);
+    border: 2px solid var(--gold);
 }
 
 .card-number {
     font-family: var(--font-serif);
-    font-size: 5rem;
-    font-weight: 600;
+    font-size: 4.5rem;
+    font-weight: 500;
     opacity: 0.9;
+    color: var(--gold-light);
 }
 
 .tap-to-flip {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-style: italic;
-    margin-top: 20px;
+    margin-top: 18px;
     opacity: 0.8;
     animation: bounce 2s ease infinite;
 }
 
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
 .memory-back {
-    background: white;
+    background: var(--cream);
     transform: rotateY(180deg);
-    padding: 20px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
 }
 
 .memory-image {
     flex: 1;
-    border-radius: 15px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     overflow: hidden;
 }
 
@@ -945,26 +1073,26 @@ body {
 }
 
 .placeholder-text {
-    font-size: 4rem;
-    opacity: 0.7;
+    font-size: 3.5rem;
+    opacity: 0.6;
 }
 
 .memory-caption {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-style: italic;
-    color: var(--deep-purple);
+    color: var(--burgundy);
     text-align: center;
     line-height: 1.4;
 }
 
 .final-message {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-style: italic;
-    color: var(--deep-purple);
+    color: var(--gold-light);
     text-align: center;
-    margin-top: 40px;
+    margin-top: 35px;
     animation: fadeInUp 1s ease backwards;
     animation-delay: 0.6s;
 }
@@ -982,42 +1110,42 @@ body {
 
 .restart-btn {
     display: block;
-    margin: 30px auto 0;
-    padding: 15px 40px;
-    background: linear-gradient(135deg, var(--soft-lavender), var(--lavender-pink));
-    color: var(--deep-purple);
-    border: none;
+    margin: 28px auto 0;
+    padding: 14px 38px;
+    background: transparent;
+    color: var(--cream);
+    border: 2px solid var(--gold);
     border-radius: 50px;
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px var(--shadow);
 }
 
 .restart-btn:hover {
+    background: var(--gold);
+    color: var(--burgundy-dark);
     transform: scale(1.05);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    .invite-title {
+        font-size: 2.2rem;
+    }
+
     .envelope {
-        width: 250px;
-        height: 170px;
+        width: 280px;
+        height: 200px;
     }
 
-    .letter-paper {
-        padding: 30px 25px;
-        margin: 0 15px;
+    .letter-inner {
+        padding: 28px 22px;
     }
 
-    .greeting {
-        font-size: 1.5rem;
-    }
-
-    .letter-body {
-        font-size: 0.95rem;
+    .letter-title {
+        font-size: 2.2rem;
     }
 
     .valentine-card {
@@ -1026,48 +1154,65 @@ body {
     }
 
     .card-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .yay-text {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
     }
 
     .memories-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .memory-card {
-        width: 250px;
-        height: 320px;
+        width: 240px;
+        height: 300px;
     }
 }
 
 @media (max-width: 480px) {
     .tap-hint {
-        font-size: 1.2rem;
+        font-size: 0.65rem;
     }
 
     .envelope {
-        width: 220px;
-        height: 150px;
+        width: 240px;
+        height: 170px;
+    }
+
+    .wax-seal {
+        width: 55px;
+        height: 55px;
+    }
+
+    .wax-heart {
+        font-size: 20px;
+    }
+
+    .invite-title {
+        font-size: 1.8rem;
+    }
+
+    .letter-title {
+        font-size: 1.8rem;
     }
 
     .card-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .btn {
-        padding: 12px 30px;
-        font-size: 1rem;
+        padding: 12px 28px;
+        font-size: 0.95rem;
     }
 
     .yay-text {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .memory-card {
         width: 90%;
-        max-width: 280px;
+        max-width: 260px;
     }
 }
